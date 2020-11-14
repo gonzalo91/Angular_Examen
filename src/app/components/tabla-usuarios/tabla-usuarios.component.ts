@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-tabla-usuarios',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabla-usuarios.component.css']
 })
 export class TablaUsuariosComponent implements OnInit {
-
-  constructor() { }
+  
+  public users : any[] = []
+  constructor(private _userService : UsersService) { }
 
   ngOnInit(): void {
+    this._userService.getAll().subscribe((resp : any) => {
+      this.users = resp.data;
+      console.log(this.users)
+    });
   }
 
 }
