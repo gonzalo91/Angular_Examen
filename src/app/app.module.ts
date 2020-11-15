@@ -7,7 +7,7 @@ import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.componen
 @NgModule({
   declarations: [
     AppComponent,
-    TablaUsuariosComponent
+    TablaUsuariosComponent,    
   ],
   imports: [
     BrowserModule

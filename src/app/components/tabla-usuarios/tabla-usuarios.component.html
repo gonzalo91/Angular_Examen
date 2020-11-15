@@ -19,7 +19,22 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.fecha_nacimiento }}</td>
                         <td>{{ user.age }} años</td>
-                        <td>{{ user.addresses.length }}</td>
+                        <td>
+                            <ng-container *ngIf="user.addresses.length == 0; else addresses">
+                                <b>Sin direcciones registradas</b>
+                            </ng-container>
+                            <ng-template #addresses>
+                                {{ user.addresses[0].domicilio }} {{ user.addresses[0].numero_exterior }} {{ user.addresses[0].colonia }} {{ user.addresses[0].cp }} {{ user.addresses[0].ciudad }}
+                                <br>
+                                <ng-container *ngIf="user.addresses.length > 1">
+                                    ({{ user.addresses.length -1 }}+) Direcciones
+                                </ng-container>
+
+
+                            </ng-template>
+                        </td>
+
+
                     </tr>
                 </tbody>
             </table>

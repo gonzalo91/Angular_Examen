@@ -17,5 +17,6 @@ export class TablaUsuariosComponent implements OnInit {
       console.log(this.users)
     });
   }
+  
 
 }
